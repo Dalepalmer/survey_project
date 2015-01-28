@@ -1,1 +1,24 @@
 <h1> Sweet Surveys </h1>
+
+<p> Create a survey!  :</p>
+
+<div class="jumbotron">
+<form action="/surveys" method="post"
+  <label for="survey_name"> Add Survey:</label>
+  <input id="survey_name" name="survey_name" type="survey_name">
+
+  <button type "submit" class="btn btn-success">Submit</button>
+</form>
+</div>
+
+<% if @surveys.any?() %>
+<p>Click on a survey to view it's questions</p>
+
+<ul>
+  <% @surveys.each do |survey| %>
+  <li><a href="/surveys/<%= survey.id() %>"><%= survey.survey_name() %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>No surveys yet.</p>
+<% end %>
