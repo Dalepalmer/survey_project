@@ -9,3 +9,10 @@ require("spec_helper")
     expect(survey.questions()).to(eq([question1, question2]))
   end
 end
+
+describe(Survey) do
+  it("capitalizes the first letter of survey_name") do
+    survey = Survey.create({:survey_name => "buffalo bill"})
+    expect(survey.survey_name()).to(eq("Buffalo bill"))
+  end
+end
